@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class WalletForm extends Component {
   render() {
-    // const { moeda } = this.props;
+    const { moeda } = this.props;
 
     return (
 
@@ -20,9 +21,14 @@ export default class WalletForm extends Component {
           <label htmlFor="moeda de pagamento">
             Moeda de pagamento
             <select data-testid="currency-input" name="moeda">
-              <option value="USD">USD</option>
+              {/* <option value="USD">USD</option>
               <option value="BTC">BTC</option>
-              <option value="DOGE">DOGE</option>
+              <option value="DOGE">DOGE</option> */}
+              {moeda.map((e) => (
+                <option key={ e } value="name">
+                  {e}
+                </option>
+              ))}
             </select>
           </label>
 
@@ -65,3 +71,7 @@ export default class WalletForm extends Component {
     );
   }
 }
+
+WalletForm.propTypes = {
+  moeda: PropTypes.arrayOf(Object).isRequired,
+};
