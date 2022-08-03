@@ -25,8 +25,8 @@ export default class WalletForm extends Component {
               <option value="BTC">BTC</option>
               <option value="DOGE">DOGE</option> */}
               {moeda.map((e) => (
-                <option key={ e } value="name">
-                  {e}
+                <option key={ e } value={ e }>
+                  { e }
                 </option>
               ))}
             </select>
