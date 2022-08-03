@@ -11,8 +11,8 @@ class Wallet extends React.Component {
     return (
       <>
         <Header email={ email } />
-        <WalletForm />
-        {Object.values(moeda).map((e) => (
+        <WalletForm moeda={ moeda } />
+        {/* {Object.values(moeda).map((e) => (
           <div key={ e.name }>
             <h5>
               {e.name}
@@ -20,7 +20,7 @@ class Wallet extends React.Component {
               {e.low}
             </h5>
           </div>
-        ))}
+        ))} */}
         {/* {console.log(Object.values(moeda))} */}
       </>
 
