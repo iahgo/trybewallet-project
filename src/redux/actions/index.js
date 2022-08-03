@@ -17,7 +17,9 @@ export function getCurrencies() {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        dispatch(setMoedas(data));
+        const array = Object.keys(data).filter((nome) => nome !== 'USDT');
+        console.log(array);
+        dispatch(setMoedas(array));
       })
   );
 }
