@@ -13,7 +13,7 @@ export default class Header extends Component {
           { email }
         </div>
         <div data-testid="total-field">
-          0
+          Despesa Total: 0
         </div>
         <div data-testid="header-currency-field">
           BRL
