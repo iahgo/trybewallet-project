@@ -5,14 +5,14 @@ import Header from '../components/Header';
 
 class Wallet extends React.Component {
   render() {
-    const { moeda } = this.props;
+    const { moeda, email } = this.props;
 
     return (
       <>
         <div>
           TrybeWallet
         </div>
-        <Header />
+        <Header email={ email } />
         {Object.values(moeda).map((e) => (
           <div key={ e.name }>
             <h5>
@@ -31,10 +31,12 @@ class Wallet extends React.Component {
 
 const mapStateToProps = (state) => ({
   moeda: state.wallet.currencies,
+  email: state.user.email,
 });
 
 Wallet.propTypes = {
   moeda: PropTypes.arrayOf(Object).isRequired,
+  email: PropTypes.string.isRequired,
 };
 
 export default connect(mapStateToProps)(Wallet);

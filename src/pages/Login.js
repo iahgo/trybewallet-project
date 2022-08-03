@@ -10,6 +10,7 @@ class Login extends React.Component {
       email: '',
       senha: '',
       isButtonDisable: true,
+      // isButtonDisable: false,
     };
   }
 
@@ -21,7 +22,6 @@ class Login extends React.Component {
       console.log('senha valido ');
       return true;
     }
-
     console.log('senha não valido');
     return false;
   }
