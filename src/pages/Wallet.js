@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Header from '../components/Header';
+import WalletForm from '../components/WalletForm';
 
 class Wallet extends React.Component {
   render() {
@@ -9,10 +10,8 @@ class Wallet extends React.Component {
 
     return (
       <>
-        <div>
-          TrybeWallet
-        </div>
         <Header email={ email } />
+        <WalletForm />
         {Object.values(moeda).map((e) => (
           <div key={ e.name }>
             <h5>
