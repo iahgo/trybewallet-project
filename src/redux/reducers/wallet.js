@@ -22,7 +22,17 @@ const wallet = (state = INITIAL_STATE, action) => {
       ...state,
       expenses: [...state.expenses, action.payload],
     };
-
+  case actionsTypes.SOMA_TOTAL:
+    return {
+      ...state,
+      total: action.total,
+    };
+  case actionsTypes.DELETE_EXPENSE:
+    return {
+      ...state,
+      expenses: state.expenses
+        .filter((item) => item.id !== action.expenseToDelete.id),
+    };
   default:
     return state;
   }

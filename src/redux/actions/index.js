@@ -46,3 +46,13 @@ export function adicionarGastos(payload) {
     ));
   };
 }
+
+export const somaTotal = (total) => ({
+  type: actionsTypes.SOMA_TOTAL,
+  total,
+});
+
+export const deleteExpense = (obj) => ({
+  type: actionsTypes.DELETE_EXPENSE,
+  expenseToDelete: obj,
+});
