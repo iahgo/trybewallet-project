@@ -23,3 +23,26 @@ export function getCurrencies() {
       })
   );
 }
+
+export const setGastos = (payload) => ({
+  type: actionsTypes.ADD_EXPENSES,
+  payload,
+});
+
+export const arraya = [];
+
+export function adicionarGastos(payload) {
+  const { id, description, value, tag, currency, exchangeRates, method } = payload;
+  return (dispatch) => {
+    // console.log(Object.keys(arraya)[0].id);
+    arraya.push({ id, description, value, tag, currency, exchangeRates, method });
+    // arraya.push(parseInt(payload, 10));
+    console.log(payload);
+    console.log(id);
+    console.log(description);
+    console.log(arraya);
+    dispatch(setGastos(
+      { id, value, description, currency, method, tag, exchangeRates },
+    ));
+  };
+}
