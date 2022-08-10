@@ -7,7 +7,6 @@ class WalletForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // value: '',
       id: 0,
       value: 0,
       currency: 'USD',
@@ -25,39 +24,27 @@ class WalletForm extends Component {
 
   clickGastos = async () => {
     const { addGastos, expenses } = this.props;
-    const { id, exchangeRates, total, value } = this.state;
-    // moedas();
+    const { id, total, value } = this.state;
     await fetch('https://economia.awesomeapi.com.br/json/all')
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         this.setState(
           {
             exchangeRates: data,
             total: (parseInt(total, 10) + parseInt(value, 10)),
-
           },
         );
       });
-    console.log(expenses);
-    console.log(exchangeRates);
-    console.log(id);
-    console.log(value);
     addGastos(this.state);
-    console.log(exchangeRates);
     this.setState(
       {
         id: id + 1,
-        // total: (parseInt(total, 10) + parseInt(value, 10)),
-        // * parseInt(exchangeRates.USD.ask, 10),
         total: expenses.reduce((acc, curr) => (
           acc + (curr.exchangeRates[curr.currency].ask) * curr.value), 0).toFixed(2),
         value: '',
         description: '',
-        // total: total2,
       },
     );
-    console.log('clicou');
   }
 
   render() {
@@ -165,7 +152,6 @@ const mapStateToProps = (state) => ({
 });
 WalletForm.propTypes = {
   moeda: PropTypes.arrayOf(Object).isRequired,
-  // moedas: PropTypes.func.isRequired,
   addGastos: PropTypes.func.isRequired,
   expenses: PropTypes.arrayOf(PropTypes.any).isRequired,
 };

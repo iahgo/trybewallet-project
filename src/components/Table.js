@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import {
-  deleteExpense as deleteExpenseAction,
-  somaTotal as sumTotalAction,
+  deleteExpense as deleteAct,
+  somaTotal as somaAct,
 } from '../redux/actions';
 
 class Table extends Component {
@@ -68,8 +68,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  deleteExpense: (obj) => dispatch(deleteExpenseAction(obj)),
-  somaTotal: (total) => dispatch(sumTotalAction(total)),
+  deleteExpense: (obj) => dispatch(deleteAct(obj)),
+  somaTotal: (total) => dispatch(somaAct(total)),
 });
 
 Table.propTypes = {

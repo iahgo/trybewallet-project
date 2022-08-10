@@ -23,7 +23,6 @@ class Login extends React.Component {
       console.log('senha valido ');
       return true;
     }
-    console.log('senha não valido');
     return false;
   }
 
@@ -77,7 +76,6 @@ class Login extends React.Component {
             Entrar
           </button>
         </form>
-
       </div>
     );
   }
