@@ -1,13 +1,48 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
+# My Wallet Project
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+## Descrição
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+Esta é uma aplicação que computa gastos em diferentes moedas e converte tudo para uma única moeda, que pode ser escolhida pelo usuário. Tudo isso foi feito usando o Redux para compartilhar o estado da aplicação entre seus vários componentes. A API de cotações de moedas usada neste projeto está disponível [aqui](https://economia.awesomeapi.com.br/).
+
+## Habilidades
+
+Neste projeto segui o roteiro para aplicação do Redux:
+
+- Criar um store Redux em aplicações React
+- Criar reducers no Redux em aplicações React
+- Criar actions no Redux em aplicações React
+- Criar dispatchers no Redux em aplicações React
+- Conectar Redux aos componentes React
+- Criar actions assíncronas na sua aplicação React que faz uso de Redux
+
+## Funcionalidades Desenvolvidas
+
+Nesta aplicação, o usuário é capaz de:
+
+- Adicionar, remover e editar um gasto
+- Visualizar uma tabela com seus gastos
+- Visualizar o total de gastos convertidos para uma moeda de escolha
+
+## Instruções de Uso
+
+### Clonando o Repositório
+
+```bash
+git clone https://github.com/iahgo/trybewallet-project.git
+```
+
+### Instalando Dependências
+
+``` bash
+npm install
+``` 
+### Executando aplicação
+
+  ``` bash
+  npm start
+  ```
+
+## Deploy da Aplicação
+
+### A aplicação está disponível em: trybewallet-project-one.vercel.app
+

@@ -1,9 +1,13 @@
 export const SAVE_EMAIL = 'SAVE_EMAIL';
 
-export const GET_CURRENCIES = 'GET_CURRENCIES';
+export const SAVE_CURRENCIES = 'SAVE_CURRENCIES';
 
-export const ADD_EXPENSES = 'ADD_EXPENSES';
+export const SAVE_EXPENSES = 'SAVE_EXPENSES';
 
-export const SOMA_TOTAL = 'SOMA_TOTAL';
+export const DELETE_TAG = 'DELETE_TAG';
 
-export const DELETE_EXPENSE = 'DELETE_EXPENSE';
+export const EDIT_TAG = 'EDIT_TAG';
+
+export const EFETIVE_EDIT = 'EFETIVE_EDIT';
+
+export const FINISH_EDIT = 'FINISH_EDIT';

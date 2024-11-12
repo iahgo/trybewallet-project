@@ -1,47 +1,56 @@
-// Coloque aqui suas actions
-import * as actionsTypes from './actionsTypes';
+import { SAVE_EMAIL, DELETE_TAG, EDIT_TAG, EFETIVE_EDIT, FINISH_EDIT,
+  SAVE_CURRENCIES, SAVE_EXPENSES } from './actionsTypes';
 
-export const usuario = (payload) => ({
-  type: actionsTypes.SAVE_EMAIL,
-  payload,
+export const saveEmail = (email) => ({
+  type: SAVE_EMAIL,
+  payload: email,
 });
 
-export const setMoedas = (array) => ({
-  type: actionsTypes.GET_CURRENCIES,
-  payload: array,
+export const actionDelete = (id) => ({
+  type: DELETE_TAG,
+  payload: id,
 });
 
-export function getCurrencies() {
-  return (dispatch) => (
-    fetch('https://economia.awesomeapi.com.br/json/all')
-      .then((response) => response.json())
-      .then((data) => {
-        const array = Object.keys(data).filter((nome) => nome !== 'USDT');
-        dispatch(setMoedas(array));
-      })
-  );
-}
-
-export const setGastos = (payload) => ({
-  type: actionsTypes.ADD_EXPENSES,
-  payload,
+export const actionEditInit = (id) => ({
+  type: EDIT_TAG,
+  payload: id,
 });
 
-export function adicionarGastos(payload) {
-  const { id, description, value, tag, currency, exchangeRates, method } = payload;
-  return (dispatch) => {
-    dispatch(setGastos(
-      { id, value, description, currency, method, tag, exchangeRates },
-    ));
-  };
-}
-
-export const somaTotal = (total) => ({
-  type: actionsTypes.SOMA_TOTAL,
-  total,
+export const actionEfetiveEdit = (object) => ({
+  type: EFETIVE_EDIT,
+  payload: object,
 });
 
-export const deleteExpense = (obj) => ({
-  type: actionsTypes.DELETE_EXPENSE,
-  expenseToDelete: obj,
+export const actionUpdateFinish = () => ({
+  type: FINISH_EDIT,
 });
+
+const saveCurrencies = (currencies) => ({
+  type: SAVE_CURRENCIES,
+  payload: currencies.filter((currencie) => currencie !== 'USDT'),
+});
+
+const saveExpenses = (data, state) => ({
+  type: SAVE_EXPENSES,
+  payload: {
+    exchangeRates: data,
+    ...state,
+  },
+});
+
+export const fetchApiExpenses = (state) => (dispatch) => {
+  fetch('https://economia.awesomeapi.com.br/json/all')
+    .then((response) => response.json())
+    .then((data) => {
+      dispatch(saveExpenses(data, state));
+    });
+};
+
+export const fetchApiCurrencies = () => (dispatch) => {
+  fetch('https://economia.awesomeapi.com.br/json/all')
+    .then((response) => response.json())
+    .then((data) => {
+      const values = Object.keys(data);
+      dispatch(saveCurrencies(values));
+    });
+};

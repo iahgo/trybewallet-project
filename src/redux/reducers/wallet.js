@@ -1,40 +1,56 @@
 // Esse reducer será responsável por tratar o todas as informações relacionadas as despesas
 // Esse reducer será responsável por tratar as informações da pessoa usuária
-import * as actionsTypes from '../actions/actionsTypes';
+import { DELETE_TAG, EDIT_TAG, EFETIVE_EDIT, FINISH_EDIT,
+  SAVE_CURRENCIES, SAVE_EXPENSES } from '../actions/actionsTypes';
 
-const INITIAL_STATE = {
-  currencies: [], // array de string
-  expenses: [], // array de objetos, com cada objeto tendo as chaves id, value, currency, method, tag, description e exchangeRates
-  editor: false, // valor booleano que indica de uma despesa está sendo editada
-  idToEdit: 0, // valor numérico que armazena o id da despesa que esta sendo editada
+const inittialState = {
+  currencies: [],
+  expenses: [],
+  editor: false,
+  idToEdit: 0,
+  update: 0,
 };
 
-const wallet = (state = INITIAL_STATE, action) => {
+const wallet = (state = inittialState, action) => {
+  const newExpenses = state.expenses;
+  console.log(action);
   switch (action.type) {
-  case actionsTypes.GET_CURRENCIES:
+  case SAVE_CURRENCIES:
     return {
       ...state,
       currencies: action.payload,
     };
-
-  case actionsTypes.ADD_EXPENSES:
+  case SAVE_EXPENSES:
     return {
       ...state,
       expenses: [...state.expenses, action.payload],
     };
-  case actionsTypes.SOMA_TOTAL:
+  case DELETE_TAG:
+
     return {
       ...state,
-      total: action.total,
+      expenses: newExpenses.filter((expense) => expense.id !== action.payload),
     };
-  case actionsTypes.DELETE_EXPENSE:
+
+  case EDIT_TAG:
     return {
       ...state,
-      expenses: state.expenses
-        .filter((item) => item.id !== action.expenseToDelete.id),
+      editor: true,
+      update: 0,
+      idToEdit: action.payload,
     };
-  default:
-    return state;
+  case EFETIVE_EDIT:
+    return {
+      ...state,
+      expenses: action.payload,
+      editor: false,
+    };
+  case FINISH_EDIT:
+    return {
+      ...state,
+      update: 1,
+    };
+  default: return state;
   }
 };
 

@@ -1,4 +1,3 @@
-// Esse reducer será responsável por tratar as informações da pessoa usuária
 import * as actionsTypes from '../actions/actionsTypes';
 
 const INITIAL_STATE = {
