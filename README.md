@@ -44,5 +44,5 @@ npm install
 
 ## Deploy da Aplicação
 
-### A aplicação está disponível em: trybewallet-project-one.vercel.app
+## A aplicação está disponível para consumo WEB: [aqui](https://economia.awesomeapi.com.br/)
 
