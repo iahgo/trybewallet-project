@@ -45,4 +45,5 @@ npm install
 ## Deploy da Aplicação
 
 ### A aplicação está disponível para consumo WEB [trybewallet-project-one.vercel.app](https://trybewallet-project-one.vercel.app/)  
+#### Para fazer o Login na aplicação, informe um email válido do tipo: email@emial.com e uma senha com no minimo 6 digitos. 
 
